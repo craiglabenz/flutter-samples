@@ -1,0 +1,10 @@
+export 'movie_card_one.dart';
+export 'movie_card_two.dart';
+export 'movie_card_three.dart';
+export 'movie_card_four.dart';
+export 'movie_card_five.dart';
+export 'movie_card_six.dart';
+export 'movie_card_seven.dart';
+export 'movie_card_eight.dart';
+export 'movie_card_widget.dart';
+export 'movie_card_list.dart';
