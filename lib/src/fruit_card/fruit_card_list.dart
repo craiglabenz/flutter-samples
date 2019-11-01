@@ -4,9 +4,11 @@ import 'package:flutter_interact/src/fruit_card/fruit_card.dart';
 class FruitCardList extends StatelessWidget {
   final List<Map<String, dynamic>> fruitData;
   final Function(int) onTap;
+  final int selectedIndex;
   final double paddingBottom;
   const FruitCardList({
     @required this.fruitData,
+    this.selectedIndex,
     this.onTap,
     this.paddingBottom = 0,
     Key key,
@@ -29,6 +31,7 @@ class FruitCardList extends StatelessWidget {
           numDislikes: fruitData[counter]['numDislikes'],
           healthInfo: fruitData[counter]['healthInfo'],
           title: fruitData[counter]['name'],
+          isSelected: counter == selectedIndex,
         ),
       );
     }).toList();

@@ -8,3 +8,4 @@ export 'fruit_card_six.dart';
 export 'fruit_card_seven.dart';
 export 'fruit_card_eight.dart';
 export 'fruit_card_list.dart';
+export 'fruit_card_widget.dart';

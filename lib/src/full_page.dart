@@ -12,16 +12,19 @@ class FullPage extends StatefulWidget {
 
 class _FullPageState extends State<FullPage> {
   Map<String, dynamic> fruitData;
+  int selectedIndex;
 
   @override
   void initState() {
     super.initState();
-    fruitData = fruits[0];
+    selectedIndex = 0;
+    fruitData = fruits[selectedIndex];
   }
 
   void updateActiveFruit(int fruitIndex) {
     setState(() {
-      fruitData = fruits[fruitIndex];
+      selectedIndex = fruitIndex;
+      fruitData = fruits[selectedIndex];
     });
   }
 
@@ -45,6 +48,7 @@ class _FullPageState extends State<FullPage> {
               (MediaQuery.of(context).size.width / 2),
           width: MediaQuery.of(context).size.width,
           child: FruitCardList(
+            selectedIndex: selectedIndex,
             fruitData: fruits,
             onTap: updateActiveFruit,
             paddingBottom: 150,
