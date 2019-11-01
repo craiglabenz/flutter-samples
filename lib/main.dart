@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_interact/src/fruit_card/fruit_card.dart';
-import 'package:flutter_interact/src/nav_bar/nav_bar.dart';
+import 'package:flutter_interact/src/tab_bar/tab_bar.dart';
 import 'package:flutter_interact/src/top_card/top_card.dart';
 
 void main() => runApp(MyApp());
@@ -69,7 +69,7 @@ class _StepsViewerState extends State<StepsViewer> {
         actions: [
           GestureDetector(child: Icon(Icons.arrow_forward), onTap: forward),
         ],
-        leading: _controller.page > 0
+        leading: _controller.positions.isNotEmpty && _controller.page > 0
             ? GestureDetector(child: Icon(Icons.arrow_back), onTap: backward)
             : null,
       ),
@@ -87,19 +87,30 @@ class _StepsViewerState extends State<StepsViewer> {
             Centerer(child: FruitCardSeven()),
             Centerer(child: FruitCardEight()),
             Center(child: FruitCardList()),
-            NavBarOne(),
-            NavBarTwo(),
+            TabBarOne(),
+            TabBarTwo(),
             Stack(
-              children: <Widget>[Positioned(bottom: 0, child: NavBarThree())],
+              children: <Widget>[Positioned(bottom: 0, child: TabBarThree())],
             ),
             Stack(
-              children: <Widget>[Positioned(bottom: 0, child: NavBarFour())],
+              children: <Widget>[Positioned(bottom: 0, child: TabBarFour())],
             ),
             Stack(
-              children: <Widget>[Positioned(bottom: 0, child: NavBarFive())],
+              children: <Widget>[Positioned(bottom: 0, child: TabBarFive())],
             ),
             Stack(
-              children: <Widget>[Positioned(bottom: 0, child: NavBarSix())],
+              children: <Widget>[Positioned(bottom: 0, child: TabBarSix())],
+            ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: FruitCardList(),
+                ),
+                Positioned(bottom: 0, child: TabBarSeven()),
+              ],
             ),
             TopCardOne(),
           ],

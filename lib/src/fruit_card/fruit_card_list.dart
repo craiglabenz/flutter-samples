@@ -67,6 +67,7 @@ class FruitCardList extends StatelessWidget {
           family: 'Guacamole ingrediens',
           title: 'Avocado',
         ),
+        SizedBox(height: 150),
       ],
     );
   }
