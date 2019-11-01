@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_interact/src/fruit_card/fruit_card.dart';
 import 'package:flutter_interact/src/tab_bar/tab_bar.dart';
 import 'package:flutter_interact/src/top_card/top_card.dart';
+import 'package:flutter_interact/src/full_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -86,7 +87,7 @@ class _StepsViewerState extends State<StepsViewer> {
             Centerer(child: FruitCardSix()),
             Centerer(child: FruitCardSeven()),
             Centerer(child: FruitCardEight()),
-            Center(child: FruitCardList()),
+            Center(child: FruitCardList(fruitData: fruits)),
             TabBarOne(),
             TabBarTwo(),
             Stack(
@@ -107,12 +108,56 @@ class _StepsViewerState extends State<StepsViewer> {
                   top: 0,
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
-                  child: FruitCardList(),
+                  child: FruitCardList(
+                    fruitData: fruits,
+                    paddingBottom: 150,
+                  ),
                 ),
-                Positioned(bottom: 0, child: TabBarSeven()),
+                Positioned(bottom: 0, child: TabBarWidget()),
               ],
             ),
             TopCardOne(),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: TopCardTwo(),
+                ),
+              ],
+            ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: TopCardThree(),
+                ),
+              ],
+            ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: TopCardFour(),
+                ),
+              ],
+            ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: TopCardFive(),
+                ),
+              ],
+            ),
+            Stack(
+              children: <Widget>[
+                Positioned(
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: TopCardSix(),
+                ),
+              ],
+            ),
+            FullPage(),
           ],
         ),
       ),

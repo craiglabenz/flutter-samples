@@ -1,3 +1,4 @@
+export 'fruits.dart';
 export 'fruit_card_one.dart';
 export 'fruit_card_two.dart';
 export 'fruit_card_three.dart';
