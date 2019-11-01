@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MovieCardFour extends StatelessWidget {
-  const MovieCardFour({Key key}) : super(key: key);
+class FruitCardFour extends StatelessWidget {
+  const FruitCardFour({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double horizontalMargin = 5;
     double cardPadding = 12;
-    double pictureAndRatings = 124;
+    double pictureAndRatings = 164;
     return Card(
       margin: EdgeInsets.all(horizontalMargin),
       child: Container(
@@ -29,15 +29,15 @@ class MovieCardFour extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Star Trek'),
-                    Text('3PM • 3:30PM • 4PM'),
-                    Text('IMAX'),
+                    Text('Lime'),
+                    Text('9 calories'),
+                    Text('Citrus'),
                   ],
                 ),
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               top: 20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +48,7 @@ class MovieCardFour extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               bottom: 20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -60,8 +60,7 @@ class MovieCardFour extends StatelessWidget {
             ),
             Positioned(
               right: 0,
-              child:
-                  Image.asset('lib/assets/images/star-trek.jpg', height: 120),
+              child: Image.asset('lib/assets/images/lime.jpg', height: 120),
             ),
           ],
         ),

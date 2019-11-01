@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MovieCardTwo extends StatelessWidget {
-  const MovieCardTwo({Key key}) : super(key: key);
+class FruitCardThree extends StatelessWidget {
+  const FruitCardThree({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +9,19 @@ class MovieCardTwo extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text('Star Trek'),
-          Text('3PM • 3:30PM • 4PM'),
-          Text('IMAX'),
+          Container(
+            height: 96,
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Lime'),
+                Text('9 calories'),
+                Text('Citrus'),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -26,7 +36,7 @@ class MovieCardTwo extends StatelessWidget {
               Icon(Icons.thumb_down),
             ],
           ),
-          Image.asset('lib/assets/images/star-trek.jpg', height: 120),
+          Image.asset('lib/assets/images/lime.jpg', height: 120),
         ],
       ),
     );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MovieCardSeven extends StatelessWidget {
-  const MovieCardSeven({Key key}) : super(key: key);
+class FruitCardSeven extends StatelessWidget {
+  const FruitCardSeven({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double horizontalMargin = 5;
     double cardPadding = 12;
-    double pictureAndRatings = 124;
+    double pictureAndRatings = 164;
     Color grey = const Color(0xFFDDDDDD);
     Color darkGrey = const Color(0xFFBBBBBB);
     return Card(
@@ -30,15 +30,15 @@ class MovieCardSeven extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Star Trek',
+                      'Lime',
                       style: Theme.of(context).textTheme.headline,
                     ),
-                    Text('3PM • 3:30PM • 4PM',
+                    Text('9 calories',
                         style: Theme.of(context)
                             .textTheme
                             .subtitle
                             .copyWith(fontWeight: FontWeight.w200)),
-                    Text('IMAX',
+                    Text('Citrus',
                         style: TextStyle(
                             color: Colors.pink, fontWeight: FontWeight.bold)),
                   ],
@@ -46,7 +46,7 @@ class MovieCardSeven extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               top: 20,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -65,7 +65,7 @@ class MovieCardSeven extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               bottom: 20,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -85,8 +85,7 @@ class MovieCardSeven extends StatelessWidget {
             ),
             Positioned(
               right: 0,
-              child:
-                  Image.asset('lib/assets/images/star-trek.jpg', height: 120),
+              child: Image.asset('lib/assets/images/lime.jpg', height: 120),
             ),
           ],
         ),

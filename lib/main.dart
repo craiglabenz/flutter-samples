@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_interact/src/movie_card/movie_card.dart';
+import 'package:flutter_interact/src/fruit_card/fruit_card.dart';
+import 'package:flutter_interact/src/nav_bar/nav_bar.dart';
+import 'package:flutter_interact/src/top_card/top_card.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,23 +45,63 @@ class _StepsViewerState extends State<StepsViewer> {
     });
   }
 
+  void forward() async {
+    await _controller.animateToPage(
+      _controller.page.toInt() + 1,
+      duration: Duration(milliseconds: 100),
+      curve: Curves.easeOut,
+    );
+  }
+
+  void backward() async {
+    await _controller.animateToPage(
+      _controller.page.toInt() - 1,
+      duration: Duration(milliseconds: 100),
+      curve: Curves.easeOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(appBarTitleText)),
+      appBar: AppBar(
+        title: Text(appBarTitleText),
+        actions: [
+          GestureDetector(child: Icon(Icons.arrow_forward), onTap: forward),
+        ],
+        leading: _controller.page > 0
+            ? GestureDetector(child: Icon(Icons.arrow_back), onTap: backward)
+            : null,
+      ),
       body: SafeArea(
+        bottom: false,
         child: PageView(
           controller: _controller,
           children: <Widget>[
-            Centerer(child: MovieCardOne()),
-            Centerer(child: MovieCardTwo()),
-            Centerer(child: MovieCardThree()),
-            Centerer(child: MovieCardFour()),
-            Centerer(child: MovieCardFive()),
-            Centerer(child: MovieCardSix()),
-            Centerer(child: MovieCardSeven()),
-            Centerer(child: MovieCardEight()),
-            Center(child: MovieCardList()),
+            Centerer(child: FruitCardOne()),
+            Centerer(child: FruitCardTwo()),
+            Centerer(child: FruitCardThree()),
+            Centerer(child: FruitCardFour()),
+            Centerer(child: FruitCardFive()),
+            Centerer(child: FruitCardSix()),
+            Centerer(child: FruitCardSeven()),
+            Centerer(child: FruitCardEight()),
+            Center(child: FruitCardList()),
+            NavBarOne(),
+            NavBarTwo(),
+            Stack(
+              children: <Widget>[Positioned(bottom: 0, child: NavBarThree())],
+            ),
+            Stack(
+              children: <Widget>[Positioned(bottom: 0, child: NavBarFour())],
+            ),
+            Stack(
+              children: <Widget>[Positioned(bottom: 0, child: NavBarFive())],
+            ),
+            Stack(
+              children: <Widget>[Positioned(bottom: 0, child: NavBarSix())],
+            ),
+            TopCardOne(),
           ],
         ),
       ),

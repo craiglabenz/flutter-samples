@@ -1,40 +1,40 @@
 import 'package:flutter/material.dart';
 
-class MovieCardEight extends StatelessWidget {
-  const MovieCardEight({Key key}) : super(key: key);
+class FruitCardEight extends StatelessWidget {
+  const FruitCardEight({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MovieCard(
-      assetPath: 'lib/assets/images/star-trek.jpg',
-      title: 'Star Trek',
+    return FruitCard(
+      assetPath: 'lib/assets/images/lime.jpg',
+      title: 'Lime',
       numLikes: 7,
       numDislikes: 2,
       isLiked: true,
-      startTimes: ['3PM', '3:30PM', '4PM'],
-      isImax: true,
+      family: 'Citrus',
+      healthInfo: '9 calories',
     );
   }
 }
 
-class MovieCard extends StatelessWidget {
+class FruitCard extends StatelessWidget {
   final String assetPath;
   final String title;
-  final List<String> startTimes;
+  final String healthInfo;
   final int numLikes;
   final int numDislikes;
   final bool isLiked;
   final bool isDisliked;
-  final bool isImax;
-  const MovieCard({
+  final String family;
+  const FruitCard({
     @required this.assetPath,
     @required this.title,
-    @required this.startTimes,
+    @required this.healthInfo,
+    @required this.family,
     this.numLikes = 0,
     this.numDislikes = 0,
     this.isLiked = false,
     this.isDisliked = false,
-    this.isImax = false,
     key,
   }) : super(key: key);
 
@@ -42,7 +42,7 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double horizontalMargin = 5;
     double cardPadding = 12;
-    double pictureAndRatings = 124;
+    double pictureAndRatings = 164;
     Color grey = const Color(0xFFDDDDDD);
     Color darkGrey = const Color(0xFFBBBBBB);
     return Card(
@@ -68,25 +68,22 @@ class MovieCard extends StatelessWidget {
                       title,
                       style: Theme.of(context).textTheme.headline,
                     ),
-                    Text(startTimes.join(' • '),
+                    Text(healthInfo,
                         style: Theme.of(context)
                             .textTheme
                             .subtitle
                             .copyWith(fontWeight: FontWeight.w200)),
-                    isImax
-                        ? Text(
-                            'IMAX',
-                            style: TextStyle(
-                                color: Colors.pink,
-                                fontWeight: FontWeight.bold),
-                          )
-                        : Text(''),
+                    Text(
+                      family,
+                      style: TextStyle(
+                          color: Colors.pink, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               top: 20,
               child: PillBorder(
                 borderColor: isLiked ? Colors.green[400] : grey,
@@ -110,7 +107,7 @@ class MovieCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 100,
+              right: pictureAndRatings - 30,
               bottom: 20,
               child: PillBorder(
                 borderColor: isDisliked ? Colors.red[400] : grey,
